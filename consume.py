@@ -10,6 +10,16 @@ def format_dict():
 
     return None
 
+def print_nicely(my_dict):
+    '''
+    Summary:
+            - Print things out nicely
+    '''
+
+    for entry in my_dict:
+        print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict['lat'], my_dict['lon']))
+
+    return None
 
 
 def main():
@@ -17,19 +27,22 @@ def main():
     consumer = KafkaConsumer('adsb-data', bootstrap_servers=['my-cluster-kafka-bootstrap:9092'], auto_offset_reset='earliest')
 
     for message in consumer:
-        print("NEW MESSAGE")
-        # print(message)
 
+        # Decode the received message
         ascii_msg = message.value.decode('ascii')
+        # Do some formatting
         ascii_msg = ascii_msg.replace("'", "\"")
+        # Turn into a dict
         output_dict = json.loads(ascii_msg)
-        # print("DECODED TYPE:", type(output_dict))
-        print(output_dict)
 
-        # message.value gives us the value portion of each message
-        # for entry in message.value:
-            # print(entry)
-            # print("MESSAGE VALUE TYPE", type(entry))
+        '''
+        ############## CUSTOM CODE GOES HERE ###################
+        '''
+        print_nicely(output_dict)
+        '''
+        ########################################################
+        '''
+
 
     return None
 
