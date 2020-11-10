@@ -17,7 +17,7 @@ def print_nicely(my_dict):
     '''
 
     for entry in my_dict:
-        print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict['lat'], my_dict['lon']))
+        print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict[entry]['lat'], my_dict[entry]['lon']))
 
     return None
 
@@ -38,6 +38,7 @@ def main():
         '''
         ############## CUSTOM CODE GOES HERE ###################
         '''
+        # Call nice printout function
         print_nicely(output_dict)
         '''
         ########################################################
