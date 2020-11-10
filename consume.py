@@ -17,7 +17,10 @@ def print_nicely(my_dict):
     '''
 
     for entry in my_dict:
-        print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict[entry]['lat'], my_dict[entry]['lon']))
+        try:
+            print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict[entry]['lat'], my_dict[entry]['lon']))
+        except:
+            print("Failed on:", entry, my_dict[entry]['lat'], my_dict[entry]['lon'])
 
     return None
 
