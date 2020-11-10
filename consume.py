@@ -8,6 +8,8 @@ def format_dict():
             - Take the message and format into a dict of structure {'flight_id' : {'lat' : lat, 'long' : long}, ... }
     '''
 
+    return None
+
 
 
 def main():
@@ -18,10 +20,15 @@ def main():
         print("NEW MESSAGE")
         # print(message)
 
+        ascii_msg = message.value.decode('ascii')
+        ascii_msg = ascii_msg.replace("'", "\"")
+        output_dict = json.loads(ascii_msg)
+        print("DECODED TYPE:", type(output_dict))
+
         # message.value gives us the value portion of each message
         for entry in message.value:
             print(entry)
-            print(type(entry))
+            print("MESSAGE VALUE TYPE", type(entry))
 
     return None
 
