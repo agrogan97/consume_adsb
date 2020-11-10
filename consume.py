@@ -26,9 +26,9 @@ def main():
         print("DECODED TYPE:", type(output_dict))
 
         # message.value gives us the value portion of each message
-        for entry in message.value:
-            print(entry)
-            print("MESSAGE VALUE TYPE", type(entry))
+        # for entry in message.value:
+            # print(entry)
+            # print("MESSAGE VALUE TYPE", type(entry))
 
     return None
 
