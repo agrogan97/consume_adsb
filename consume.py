@@ -23,7 +23,8 @@ def main():
         ascii_msg = message.value.decode('ascii')
         ascii_msg = ascii_msg.replace("'", "\"")
         output_dict = json.loads(ascii_msg)
-        print("DECODED TYPE:", type(output_dict))
+        # print("DECODED TYPE:", type(output_dict))
+        print(output_dict)
 
         # message.value gives us the value portion of each message
         # for entry in message.value:
