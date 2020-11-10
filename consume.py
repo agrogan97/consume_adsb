@@ -17,10 +17,9 @@ def print_nicely(my_dict):
     '''
 
     for entry in my_dict:
-        try:
+        # NB: Sometimes data contains None for lat/long, make sure to check
+        if (my_dict[entry]['lat'] is not None) and (my_dict[entry]['lon'] is not None):
             print("New Entry: %s | Latitude %.3f | Longitude %.3f" % (entry, my_dict[entry]['lat'], my_dict[entry]['lon']))
-        except:
-            print("Failed on:", entry, my_dict[entry]['lat'], my_dict[entry]['lon'])
 
     return None
 
